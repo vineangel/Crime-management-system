@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'myapp/signupstyle/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'myapp/signupstyle/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'myapp/signupstyle/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'myapp/signupstyle/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'myapp/signupstyle/css/main.css' %}" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w780">
+            <div class="card card-3">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Registration</h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Name" name="name" required="required" onkeypress="return allowOnlyLetters(event,this);"  >
+                        </div>
+                        <div class="input-group">
+                            <input class="" type="date" placeholder="Birthdate" name="birthday" min="1814-01-10" max="2018-01-10" required="required" >
+<!--                            <i class=""></i>-->
+                        </div>
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select required name="gender" >
+                                    <option required disabled="disabled" selected="selected"  >Gender</option >
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                            <input type="hidden" value="userpic.jpg" name="img">
+
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="email" placeholder="Email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"   id="emailInput" onblur="validateEmail()" required="required" autocomplete="off" >
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="password" placeholder="password" name="password" pattern="(?=.[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="off" required="required">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Phone" name="phone" id="numberInput" onblur="validateNumber()" maxlength="10" minlength="10" inputmode="numeric"   autocomplete="off" onkeypress="return isNumberKey(event,this);" required="required" >
+                        </div>
+                        <div class="ml-3">
+                            <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                            Already have an account?<a href="{% url 'login' %}" class="btn btn-secondary">Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="{% static 'myapp/signupstyle/vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'myapp/signupstyle/vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'myapp/signupstyle/vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'myapp/signupstyle/vendor/datepicker/daterangepicker.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'myapp/signupstyle/js/global.js' %}"></script>
+
+    <script language="Javascript" type="text/javascript">
+
+function allowOnlyLetters(e, t)
+{
+   if (window.event)
+   {
+      var charCode = window.event.keyCode;
+   }
+   else if (e)
+   {
+      var charCode = e.which;
+   }
+   else { return true; }
+   if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+       return true;
+   else
+   {
+      alert("Please enter only alphabets");
+      return false;
+   }
+}
+function isNumberKey(evt, obj) {
+
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            var value = obj.value;
+            var dotcontains = value.indexOf(".") != -1;
+            if (dotcontains)
+                if (charCode == 46) return false;
+            if (charCode == 46) return true;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+
+function ValidateEmail(mail){
+    	//  alert("You have entered an invalid email address!")
+    	if (/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/.test(mail.value)){
+    		return (true);
+    	}
+    	alert("You have entered an invalid email address!");
+    	return (false);
+	}
+
+
+
+
+</script>
+
+<script>
+    function validateEmail() {
+      var emailInput = document.getElementById("emailInput");
+      var email = emailInput.value;
+      var emailRegex = /^[A-Za-z0-9._%+-]+@gmail\.com$/;
+
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid Gmail address.");
+        emailInput.value = "";
+        return false;
+      }
+    }
+  </script>
+<script>
+    function validateNumber() {
+      var numberInput = document.getElementById("numberInput");
+      var value = numberInput.value;
+
+      if (value === "0000000000" || value === "1111111111" || value === "2222222222" || value === "3333333333" || value === "4444444444" || value === "5555555555" || value === "6666666666" || value === "7777777777" || value ==="8888888888" || value ==="9999999999")
+      {
+        alert("Please enter a valid phone number");
+        numberInput.value = "";
+        return false;
+      }
+    }
+  </script>
+</body>
+
+</html>
+<!-- end document-->

@@ -1,0 +1,277 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>user file complaint</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="apple-touch-icon" sizes="57x57" href="{%static 'myapp/redlight/assets/images/favicons/apple-icon-57x57.png'%}">
+<link rel="apple-touch-icon" sizes="60x60" href="{%static 'myapp/redlight/assets/images/favicons/apple-icon-60x60.png'%}">
+<link rel="apple-touch-icon" sizes="72x72" href="{%static 'myapp/redlight/assets/images/favicons/apple-icon-72x72.png'%}">
+<link rel="apple-touch-icon" sizes="76x76" href="{%static 'myapp/redlight/assets/images/favicons/apple-icon-76x76.png'%}">
+<link rel="apple-touch-icon" sizes="114x114" href="{%static 'myapp/redlight/assets/images/favicons/apple-icon-114x114.png'%}">
+<link rel="apple-touch-icon" sizes="120x120" href="{%static 'myapp/redlight/assets/images/favicons/apple-icon-120x120.png'%}">
+<link rel="apple-touch-icon" sizes="144x144" href="{%static 'myapp/redlight/assets/images/favicons/apple-icon-144x144.png'%}">
+<link rel="apple-touch-icon" sizes="152x152" href="{%static 'myapp/redlight/assets/images/favicons/apple-icon-152x152.png'%}">
+<link rel="apple-touch-icon" sizes="180x180" href="{%static 'myapp/redlight/assets/images/favicons/apple-icon-180x180.png'%}">
+<link rel="icon" type="image/png" sizes="192x192"  href="{%static 'myapp/redlight/assets/images/favicons/android-icon-192x192.png'%}">
+<link rel="icon" type="image/png" sizes="32x32" href="{%static 'myapp/redlight/assets/images/favicons/favicon-32x32.png'%}">
+<link rel="icon" type="image/png" sizes="96x96" href="{%static 'myapp/redlight/assets/images/favicons/favicon-96x96.png'%}">
+<link rel="icon" type="image/png" sizes="16x16" href="{%static 'myapp/redlight/assets/images/favicons/favicon-16x16.png'%}">
+<link rel="manifest" href="https://html.designingmedia.com/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="{%static 'myapp/redlight/assets/images/favicons/ms-icon-144x144.png'%}">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="{%static 'myapp/redlight/assets/css/bootstrap.min.css'%}" />
+<link rel="stylesheet" href="{%static 'myapp/redlight/assets/css/style.css'%}" />
+<link rel="stylesheet" href="{%static 'myapp/redlight/assets/css/mobile.css'%}" />
+<link rel="stylesheet" href="{%static 'myapp/redlight/cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'%}"
+        integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{%static 'myapp/redlight/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css'%}" />
+<link rel="stylesheet" href="{%static 'myapp/redlight/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'%}">
+<link rel="stylesheet" href="{%static 'myapp/redlight/cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css'%}" />
+<link href="{%static 'myapp/redlight/../../unpkg.com/aos%402.3.1/dist/aos.css'%}" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER-SECTION -->
+    <div class="home-header-section">
+        <header class="header">
+            <div class="main-header">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light p-0">
+                        <a class="navbar-brand pt-0" href=""><img src="{%static 'myapp/redlight/assets/images/emblem4.jpg' %}" alt="" style="border-radius: 50%; "  width="100px" height="100px" class="img-fluid diverge-logo" /></a>
+                            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-decoration-none navbar-text-color home-margin-top" href="userindex.html">Home<span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-decoration-none navbar-text-color" href="about.html">About</a>
+                                        </li>
+                                         {% for x in details %}
+                                        <li class="nav-item">
+                                            <a class="nav-link text-decoration-none navbar-text-color" href="user_view_complaint.html?s_id={{ x.id }}">Complaints</a>
+                                        </li>
+
+
+                                        <li class="nav-item navbar-text-color"><a class="nav-link text-decoration-none contact-us-margin navbar-text-color" href="logout">Logout</a></li>
+                                    </ul>
+                                    <div class="btn-talk ml-auto">
+                                        <ul class="m-0 p-0">
+                                            <li class="list-unstyled d-lg-inline-block active"><a class="nav-link contact" href="profile.html">Profile</a></li>
+                                        </ul>
+                                    </div>
+                                     <div class="m-0 p-0"><li class=" text-center">
+
+                           <img class="img-fluid" src="../media/{{x.userphoto}}" alt=""  style="border-radius: 50%; " width="100px" height="100px"  >
+<!--                       <h8 style="color:red"> {{ x.name }}</h8>-->
+                                    </li></div>
+                                </div>
+                    </nav>
+                </div>
+            </div>
+            {% endfor %}
+        </header>
+        <!-- BANNER-SECTION -->
+        <div class="home-banner-section overflow-hidden">
+            <div class="banner-container-box">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-md-0 mb-4  text-center">
+                            <div class="about-banner-text" data-aos="fade-up">
+                                <h1 class="text-white about-h1"  data-aos="zoom-out-left">Update Profile</h1>
+<!--                                <p class="text-white banner-paragraph"  data-aos="zoom-out-right">Lorem ipsum dolor sit amet consectetur adipiscing-->
+<!--                                    elit sed do eiusm tempor incididunt ut labore et dolore magna aliqua.</p>-->
+                                <div class="about-btn">
+<!--                                    <a href="contact.html" class="text-decoration-none">Home <span class="about-text-color"> /-->
+<!--                                            Contact</span></a>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-md-0 mb-4">
+                            <div class="about-us-section-page contact-us-section" data-aos="fade-up">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <br>
+
+
+
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="about-section-form">
+                                            <form method="POST" action="" enctype="multipart/form-data">
+                                                {% csrf_token %}
+
+                                                 <div class="form-group contact-form-margin">
+                                                     <label style="color:#999999;">Photo</label>
+
+                                                </div>
+
+
+<!--                                                <div class="form-group contact-form-margin">-->
+
+<!--                                                      <img src="../media/{{up.userphoto}}"  height="100px" width="100px">-->
+
+<!--                                                 <input type="file" class="form-control mt-1"  name="userphoto" >-->
+<!--                                                </div>-->
+
+                                                {% if up.userphoto %}
+                                                      <img src="../media/{{up.userphoto}}"  height="100px" width="100px">
+                                                     {% endif %}
+                                                    <input type="file" class="form-control "
+                                                        id="" name="userphoto" value="{{up.userphoto}}"   >
+
+
+
+                                                <div class="form-group contact-form-margin">
+                                                    <input type="text" class="form-control input-text"
+                                                        id="validationCustom01" value="{{up.name}}"  name="name"  onkeypress="return allowOnlyLetters(event,this);"  >
+                                                </div>
+
+                                                <div class="form-group contact-form-margin">
+                                                    <input type="date" class="form-control input-text"
+                                                        id="validationCustom03" value="{{up.birthday}}" onclick="checkDOB()" min="1814-01-10" max="2018-01-10" name="birthday">
+                                                </div>
+
+                                                 <div class="form-group contact-form-margin">
+                                                    <input type="text" class="form-control input-text"
+                                                        id="validationCustom033"  value="{{up.gender}}" onkeypress="return allowOnlyLetters(event,this);" name="gender">
+                                                </div>
+
+                                                <div class="form-group contact-form-margin">
+                                                    <input type="email" class="form-control input-text"
+                                                         value="{{up.email}}" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  id="emailInput" onblur="validateEmail()"  >
+                                                </div>
+                                                 <div class="form-group contact-form-margin">
+                                                    <input type="password" class="form-control input-text"
+                                                        id="myInput"  value="{{up.password}}" name="password" pattern="(?=.[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  >
+                                                        <input  type="checkbox" onclick="myFunction()">  <p style="color:white;">Show Password</p>
+                                                 </div>
+
+                                                 <div class="form-group contact-form-margin">
+                                                    <input type="text" class="form-control input-text"
+                                                         value="{{up.phone}}" name="phone" min="1" max="9999999999" maxlength="10" minlength="10" inputmode="numeric" id="numberInput" onblur="validateNumber()" onkeypress="return isNumberKey(event,this);"  >
+                                                </div>
+
+
+                                                <div class="contact-section-btn text-center">
+                                                    <button type="submit" class="btn btn-primary hover-effect">Update</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="{%static 'myapp/redlight/../../code.jquery.com/jquery-1.12.1.min.js'%}"></script>
+    <script src="{%static 'myapp/redlight/assets/js/animations.js'%}"></script>
+    <script src="{%static 'myapp/redlight/assets/js/bootstrap.min.js'%}"></script>
+    <script src="{%static 'myapp/redlight/assets/js/jquery-3.6.0.min.js'%}"></script>
+    <script src="{%static 'myapp/redlight/assets/js/popper.min.js'%}"></script>
+    <script src="{%static 'myapp/redlight/assets/js/custom-script.js'%}"></script>
+    <script src="{%static 'myapp/redlight/assets/js/owl.carousel.js'%}"></script>
+    <script src="{%static 'myapp/redlight/../../unpkg.com/aos%402.3.1/dist/aos.js'%}"></script>
+    <script src="{%static 'myapp/redlight/assets/js/text-animations.js'%}"></script>
+    <script>
+  function validateImage() {
+    var fileInput = document.getElementById('policeupdateimage');
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+    if (!allowedExtensions.exec(filePath)) {
+        alert('Invalid file type. Only JPG, JPEG, PNG and GIF files are allowed.');
+        fileInput.value = '';
+        return false;
+    }
+
+    if (fileInput.files && fileInput.files[0]) {
+        var fileSize = fileInput.files[0].size;
+        var maxSize = 500000; // 500KB
+
+        if (fileSize > maxSize) {
+            alert('File is too large. Maximum file size is 500KB.');
+            fileInput.value = '';
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+    </script>
+   <script>
+       <script type="text/javascript">
+    function checkDOB() {
+        var dateString = document.getElementById('id_dateOfBirth').value;
+        var myDate = new Date(dateString);
+        var today = new Date();
+        if ( myDate > today ) {
+            $('#id_dateOfBirth').after('<p>You cannot enter a date in the future!.</p>');
+            return false;
+        }
+        return true;
+    }
+
+</script>
+    <script>
+         function myFunction() {
+      var x = document.getElementById("myInput");
+      if (x.type === "password") {
+          x.type = "text";
+          }
+      else {
+          x.type = "password";
+          }
+      }
+   </script>
+<script>
+    function validateNumber() {
+      var numberInput = document.getElementById("numberInput");
+      var value = numberInput.value;
+
+      if (value === "0000000000" || value === "1111111111" || value === "2222222222" || value === "3333333333" || value === "4444444444" || value === "5555555555" || value === "6666666666" || value === "7777777777" || value ==="8888888888" || value ==="9999999999")
+      {
+        alert("Please enter a valid phone number");
+        numberInput.value = "";
+        return false;
+      }
+    }
+  </script>
+<script>
+    function validateEmail() {
+      var emailInput = document.getElementById("emailInput");
+      var email = emailInput.value;
+      var emailRegex = /^[A-Za-z0-9._%+-]+@gmail\.com$/;
+
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid Gmail address.");
+        emailInput.value = "";
+        return false;
+      }
+    }
+  </script>
+</body>
+
+</html>
